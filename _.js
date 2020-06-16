@@ -1,52 +1,52 @@
 const _ = {
 
-    clamp(number, lower, upper){
+    clamp(number, lower, upper) {
         //https://lodash.com/docs/4.17.15#clamp
 
         let minimum = Math.max(number, lower);
         return Math.min(minimum, upper);
     },
 
-    inRange(number, start, end){
+    inRange(number, start, end) {
         //https://lodash.com/docs/4.17.15#inRange
 
-        if(!end){
+        if (!end) {
             temp = start;
             start = 0;
             end = temp;
         }
 
-        if(start > end){
+        if (start > end) {
             temp = end;
             end = start;
             start = temp;
         }
 
-        if ((number >= start) && (number < end)){
+        if ((number >= start) && (number < end)) {
             return true;
-        } else{
+        } else {
             return false;
         }
     },
 
-    words(string){
+    words(string) {
         //https://lodash.com/docs/4.17.15#words
-        return string.split(' ');    
+        return string.split(' ');
     },
 
-    pad(str, length){
+    pad(str, length) {
         //https://lodash.com/docs/4.17.15#pad
 
-        if (str.length > length){
+        if (str.length > length) {
             return str;
         }
 
         const difference = length - str.length;
 
-        if (difference % 2 === 0){
+        if (difference % 2 === 0) {
             let repeat = difference / 2;
             console.log(repeat);
-            return ' '.repeat(repeat) + str + ' '.repeat(repeat);; 
+            return ' '.repeat(repeat) + str + ' '.repeat(repeat);;
         } else {
             let frontSpace = Math.floor(difference / 2);
             let backSpace = Math.ceil(difference / 2);
@@ -55,18 +55,18 @@ const _ = {
 
     },
 
-    has(obj, key){
+    has(obj, key) {
         //https://lodash.com/docs/4.17.15#has
         return obj.hasOwnProperty(key);
     },
 
-    invert(obj){
+    invert(obj) {
         //https://lodash.com/docs/4.17.15#invert
         const keys = Object.keys(obj);
         const values = Object.values(obj);
         let result = {};
 
-        for (key in keys){
+        for (key in keys) {
             result[values[key]] = keys[key];
         }
 
@@ -74,12 +74,12 @@ const _ = {
 
     },
 
-    findKey(obj, func){
+    findKey(obj, func) {
         //https://lodash.com/docs/4.17.15#findKey
-        const keys = Object.keys(obj); 
-        for (key in keys){
+        const keys = Object.keys(obj);
+        for (key in keys) {
             let value = obj[keys[key]];
-            if(func(value)){
+            if (func(value)) {
                 return keys[key]
             }
         }
@@ -87,9 +87,9 @@ const _ = {
         return undefined;
     },
 
-    drop(arr, num){
+    drop(arr, num) {
         //https://lodash.com/docs/4.17.15#drop
-        if (!num){
+        if (!num) {
             arr.shift()
             return arr;
         }
@@ -99,10 +99,10 @@ const _ = {
 
     },
 
-    dropWhile(arr, func){
+    dropWhile(arr, func) {
         //https://lodash.com/docs/4.17.15#dropWhile
         let dropNumber = arr.findIndex((element, index) => {
-          return !func(element, index, arr);
+            return !func(element, index, arr);
         })
 
         let droppedArray = this.drop(arr, dropNumber);
@@ -111,22 +111,17 @@ const _ = {
 
     },
 
-    chunk(arr, size=1){
+    chunk(arr, size = 1) {
         //https://lodash.com/docs/4.17.15#chunk
         let result = [];
 
-        for (let i = 0; i < arr.length; i += size){
+        for (let i = 0; i < arr.length; i += size) {
             let chunk = arr.slice(i, i + size)
-            result.push(chunk);    
+            result.push(chunk);
         }
 
         return result;
-
-
     }
-
-
-
 };
 
 
