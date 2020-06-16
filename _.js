@@ -27,8 +27,54 @@ const _ = {
         } else{
             return false;
         }
+    },
+
+    words(string){
+        //https://lodash.com/docs/4.17.15#words
+        return string.split(' ');    
+    },
+
+    pad(str, length){
+        //https://lodash.com/docs/4.17.15#pad
+
+        if (str.length > length){
+            return str;
+        }
+
+        const difference = length - str.length;
+
+        if (difference % 2 === 0){
+            let repeat = difference / 2;
+            console.log(repeat);
+            return ' '.repeat(repeat) + str + ' '.repeat(repeat);; 
+        } else {
+            let frontSpace = Math.floor(difference / 2);
+            let backSpace = Math.ceil(difference / 2);
+            return ' '.repeat(frontSpace) + str + ' '.repeat(backSpace);
+        }
+
+    },
+
+    has(obj, key){
+        //https://lodash.com/docs/4.17.15#has
+        return obj.hasOwnProperty(key);
+    },
+
+    invert(obj){
+        //https://lodash.com/docs/4.17.15#invert
+        const keys = Object.keys(obj);
+        const values = Object.values(obj);
+        let result = {};
+
+        for (key in keys){
+            result[values[key]] = keys[key];
+        }
+
+        return result;
 
     }
+
+
 
 };
 
