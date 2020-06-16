@@ -72,6 +72,37 @@ const _ = {
 
         return result;
 
+    },
+
+    findKey(obj, func){
+        //https://lodash.com/docs/4.17.15#findKey
+        const keys = Object.keys(obj); 
+        for (key in keys){
+            let value = obj[keys[key]];
+            if(func(value)){
+                return keys[key]
+            }
+        }
+
+        return undefined;
+    },
+
+    drop(arr, num){
+        //https://lodash.com/docs/4.17.15#drop
+        if (!num){
+            arr.shift()
+            return arr;
+        }
+
+        arr.splice(0, num);
+        return arr;
+
+    },
+
+    dropWhile(arr, func){
+        //https://lodash.com/docs/4.17.15#dropWhile
+        
+
     }
 
 
