@@ -101,7 +101,27 @@ const _ = {
 
     dropWhile(arr, func){
         //https://lodash.com/docs/4.17.15#dropWhile
-        
+        let dropNumber = arr.findIndex((element, index) => {
+          return !func(element, index, arr);
+        })
+
+        let droppedArray = this.drop(arr, dropNumber);
+
+        return droppedArray;
+
+    },
+
+    chunk(arr, size=1){
+        //https://lodash.com/docs/4.17.15#chunk
+        let result = [];
+
+        for (let i = 0; i < arr.length; i += size){
+            let chunk = arr.slice(i, i + size)
+            result.push(chunk);    
+        }
+
+        return result;
+
 
     }
 
